@@ -23,7 +23,7 @@ segmentation_model_camvid.pt
 
 # Dataset / outputs
 class_dict.csv
-/data/
-output/
-test_predictions.png
-training_curves.png
+# /data/  (tracked as requested)
+# output/ (tracked as requested)
+# test_predictions.png (tracked as requested)
+# training_curves.png (tracked as requested)
