@@ -1,0 +1,44 @@
+# =============================================================================
+# Docker Compose — perception pipeline with GPU + display
+#
+# Before running:
+#   Linux:   xhost +local:docker
+#   Windows: Install & start VcXsrv (or use WSLg on Windows 11)
+#
+# Usage:
+#   docker compose build
+#   docker compose up
+# =============================================================================
+
+services:
+  perception:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: camvid_perception
+
+    # ── GPU access (uncomment if NVIDIA Container Toolkit is installed) ─
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+    # ── Display ─────────────────────────────────────────────────────────
+    environment:
+      - DISPLAY=host.docker.internal:0.0
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_INDIRECT=1
+    volumes:
+      # ── Bind-mount data files (model, classes, video) ─────────────────
+      - ./segmentation_model_camvid.pt:/data/segmentation_model_camvid.pt:ro
+      - ./label_colors.csv:/data/label_colors.csv:ro
+      - ./data/_out_camera:/data/frames:ro
+      - ./data/_out_labels:/data/labels:ro
+      # ── Writable mount for output videos ──────────────────────────────
+      - ./output:/data/output:rw
+
+    stdin_open: true
+    tty: true

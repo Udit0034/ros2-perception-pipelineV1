@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# Docker build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Editor
+.vscode/
+
+# Temporary trash
+.trash/
+
+# Big model files
+segmentation_model_camvid.pt

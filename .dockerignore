@@ -1,0 +1,17 @@
+# Large / unnecessary files
+segmentation_model_camvid.pt
+label_colors.csv
+test.mp4
+test_predictions.png
+training_curves.png
+camvid_deeplabv3_segmentation.*
+
+# Build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
