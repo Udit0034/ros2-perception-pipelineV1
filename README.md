@@ -202,7 +202,6 @@ Outputs will be saved in:
   * Collision avoidance
   * Path planning
 * Integrate with simulators like CARLA
-* Optimize inference using ONNX / TensorRT
 
 ---
 
