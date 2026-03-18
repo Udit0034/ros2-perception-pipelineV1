@@ -20,3 +20,10 @@ ros2_ws/log/
 
 # Big model files
 segmentation_model_camvid.pt
+
+# Dataset / outputs
+class_dict.csv
+/data/
+output/
+test_predictions.png
+training_curves.png
